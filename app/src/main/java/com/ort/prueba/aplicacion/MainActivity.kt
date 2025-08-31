@@ -10,7 +10,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.ort.prueba.aplicacion.screen.LoginScreen
+import com.ort.prueba.aplicacion.screen.RegisterScreen
+import com.ort.prueba.aplicacion.screen.WelcomeScreen
 import com.ort.prueba.aplicacion.ui.theme.MyApplicationTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,11 +23,17 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MyApplicationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                Scaffold(modifier = Modifier.fillMaxSize(),containerColor = Color.White) { innerPadding ->
+                    /*WelcomeScreen(
                         modifier = Modifier.padding(innerPadding)
                     )
+                    RegisterScreen(
+                        modifier = Modifier.padding(innerPadding)
+                    )*/
+                    LoginScreen(
+                        modifier = Modifier.padding(innerPadding)
+                    )
+
                 }
             }
         }
