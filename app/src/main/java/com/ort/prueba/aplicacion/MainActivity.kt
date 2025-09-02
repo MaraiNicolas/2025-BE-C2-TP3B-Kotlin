@@ -26,14 +26,13 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize(),containerColor = Color.White) { innerPadding ->
                     /*WelcomeScreen(
                         modifier = Modifier.padding(innerPadding)
-                    )
+                    )*/
                     RegisterScreen(
                         modifier = Modifier.padding(innerPadding)
-                    )*/
-                    LoginScreen(
-                        modifier = Modifier.padding(innerPadding)
                     )
-
+                    /*LoginScreen(
+                        modifier = Modifier.padding(innerPadding)
+                    )*/
                 }
             }
         }

@@ -21,6 +21,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.ort.prueba.aplicacion.components.AppButton
+import com.ort.prueba.aplicacion.components.AppCampoTexto
+import com.ort.prueba.aplicacion.components.AppCampoTextoTitulo
+import com.ort.prueba.aplicacion.components.AppLabelTexto
+import com.ort.prueba.aplicacion.components.SocialButtons
 
 @Composable
 fun LoginScreen(modifier : Modifier){
@@ -32,30 +37,23 @@ fun LoginScreen(modifier : Modifier){
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ){
-        Text(
-            text = "Login here"
+        AppCampoTextoTitulo(
+            label = "Login here"
         )
         Spacer(modifier = Modifier.height(8.dp))
-        Text(
-            text = "Welcome back, you've been missed"
+        AppLabelTexto(
+            label = "Welcome back, you've been missed"
         )
+
         Spacer(modifier = Modifier.height(32.dp))
-        OutlinedTextField(
-            value = "",
-            onValueChange = {},
-            label = { Text("Email") },
-            modifier = Modifier.fillMaxWidth()
-        )
+        AppCampoTexto(label = "Email")
+
         Spacer(modifier = Modifier.height(16.dp))
-        OutlinedTextField(
-            value = "",
-            onValueChange = {},
-            label = { Text("Password") },
-            modifier = Modifier.fillMaxWidth()
+        AppCampoTexto(
+            label = "Password"
         )
 
         Spacer(modifier = Modifier.height(8.dp))
-
         // Texto alineado a la derecha
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -67,16 +65,15 @@ fun LoginScreen(modifier : Modifier){
         }
         Spacer(modifier = Modifier.height(24.dp))
 
-        // Botón de login
-        Button(
-            onClick = { /* TODO: login logic */ },
-            modifier = Modifier.fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFF001F54), // Azul marino
-                contentColor = Color.White
-            )
-        ) {
-            Text("Sign In")
-        }
+        AppButton(
+            text = "Sign In",
+            onClick = { /* TODO: login logic */ }
+        )
+
+        AppLabelTexto(
+            label = "Or continue with",
+            modifier = Modifier.height(10.dp)
+        )
+        SocialButtons();
     }
 }
