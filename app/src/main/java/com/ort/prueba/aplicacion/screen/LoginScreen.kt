@@ -1,7 +1,4 @@
 package com.ort.prueba.aplicacion.screen
-
-import android.R
-import android.graphics.Color.blue
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,69 +8,75 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.ort.prueba.aplicacion.components.AppButton
 import com.ort.prueba.aplicacion.components.AppCampoTexto
 import com.ort.prueba.aplicacion.components.AppCampoTextoTitulo
 import com.ort.prueba.aplicacion.components.AppLabelTexto
-import com.ort.prueba.aplicacion.components.SocialButtons
+import com.ort.prueba.aplicacion.components.LoginButton
+import com.ort.prueba.aplicacion.components.SocialButton
 
 @Composable
-fun LoginScreen(modifier : Modifier){
+fun LoginScreen(modifier : Modifier) {
     Column(
         modifier = modifier
             .fillMaxSize()
-            .padding(24.dp)
-            .background(Color.White), // margen general
+            .background(Color.White),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
-    ){
-        AppCampoTextoTitulo(
-            label = "Login here"
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        AppLabelTexto(
-            label = "Welcome back, you've been missed"
-        )
+    ) {
+        Column(            modifier = Modifier.padding(start= 41.dp, end=41.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(15.dp)) {
+            AppCampoTextoTitulo(
+                text = "Login here",
+                fontSize = 35.sp,
+                fontWeight = FontWeight.SemiBold,
+                color = Color(0xFF1059CE),
+                textAlign = TextAlign.Center,
+                lineHeight = 50.sp,
+                modifier = Modifier
+            )
 
-        Spacer(modifier = Modifier.height(32.dp))
-        AppCampoTexto(label = "Email")
+            AppLabelTexto(
+                text = "Welcome back you've been missed!",
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 25.sp
+            )
 
-        Spacer(modifier = Modifier.height(16.dp))
-        AppCampoTexto(
-            label = "Password"
-        )
+            AppCampoTexto(label = "Email")
 
-        Spacer(modifier = Modifier.height(8.dp))
-        // Texto alineado a la derecha
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.End
-        ) {
-            Text("Forgot your password?",
-                style = MaterialTheme.typography.bodySmall,
-                color = Color.Blue)
+            AppCampoTexto(
+                label = "Password"
+            )
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.End
+            ) {
+                Text(
+                    "Forgot your password?",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = Color.Blue
+                )
+            }
+
+            LoginButton(
+                modifier,
+                label = "Sign In"
+            )
+            SocialButton()
         }
-        Spacer(modifier = Modifier.height(24.dp))
-
-        AppButton(
-            text = "Sign In",
-            onClick = { /* TODO: login logic */ }
-        )
-
-        AppLabelTexto(
-            label = "Or continue with",
-            modifier = Modifier.height(10.dp)
-        )
-        SocialButtons();
     }
 }
