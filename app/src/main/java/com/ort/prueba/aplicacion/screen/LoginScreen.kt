@@ -3,10 +3,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -18,7 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ort.prueba.aplicacion.components.AppButton
+import androidx.navigation.NavHostController
 import com.ort.prueba.aplicacion.components.AppCampoTexto
 import com.ort.prueba.aplicacion.components.AppCampoTextoTitulo
 import com.ort.prueba.aplicacion.components.AppLabelTexto
@@ -26,7 +24,7 @@ import com.ort.prueba.aplicacion.components.LoginButton
 import com.ort.prueba.aplicacion.components.SocialButton
 
 @Composable
-fun LoginScreen(modifier : Modifier) {
+fun LoginScreen(modifier : Modifier, navController : NavHostController) {
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -74,7 +72,8 @@ fun LoginScreen(modifier : Modifier) {
 
             LoginButton(
                 modifier,
-                label = "Sign In"
+                label = "Sign In",
+                navController = navController
             )
             SocialButton()
         }

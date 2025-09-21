@@ -12,6 +12,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.ort.prueba.aplicacion.screen.LoginScreen
 import com.ort.prueba.aplicacion.screen.RegisterScreen
 import com.ort.prueba.aplicacion.screen.WelcomeScreen
@@ -21,18 +24,38 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+
         setContent {
+            val navController = rememberNavController();
             MyApplicationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize(),containerColor = Color.White) { innerPadding ->
-//                    WelcomeScreen(
-//                        modifier = Modifier.padding(innerPadding)
-//                    )
-                    RegisterScreen(
-                        modifier = Modifier.padding(innerPadding)
-                    )
-//                    LoginScreen(
-//                        modifier = Modifier.padding(innerPadding)
-//                    )
+                Scaffold(modifier = Modifier.fillMaxSize(),containerColor = Color.White)
+                {
+                    innerPadding ->
+                    NavHost(
+                        navController = navController,
+                        modifier = Modifier.padding( paddingValues = innerPadding),
+                        startDestination = "Welcome"
+                    ){
+                        composable(route = "Welcome"){
+                            WelcomeScreen(
+                                modifier = Modifier.padding(innerPadding),
+                                navController = navController
+                            );
+                        }
+                        composable(route="Register"){
+                            RegisterScreen(
+                                modifier = Modifier.padding(innerPadding),
+                                navController
+                            );
+                        }
+                        composable(route="Login"){
+                            LoginScreen(
+                                modifier = Modifier.padding(innerPadding),
+                                navController
+                            );
+                        }
+                    }
                 }
             }
         }

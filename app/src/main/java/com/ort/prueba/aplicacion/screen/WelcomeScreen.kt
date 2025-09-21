@@ -19,6 +19,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.ort.prueba.aplicacion.R
 import com.ort.prueba.aplicacion.components.AppCampoTextoTitulo
 import com.ort.prueba.aplicacion.components.AppLabelTexto
@@ -26,7 +28,7 @@ import com.ort.prueba.aplicacion.components.LoginButton
 import com.ort.prueba.aplicacion.components.RegisterButton
 
 @Composable
-fun WelcomeScreen(modifier : Modifier){
+fun WelcomeScreen(modifier : Modifier, navController : NavHostController){
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -60,9 +62,9 @@ fun WelcomeScreen(modifier : Modifier){
         Row(modifier = Modifier.fillMaxWidth()
             .padding(horizontal = 20.dp, vertical = 60.dp),
             horizontalArrangement = Arrangement.Center){
-            LoginButton(Modifier, label="Login")
+            LoginButton(Modifier, label = "Login",navController = navController)
             Spacer(modifier = Modifier.width(10.dp))
-            RegisterButton(Modifier, label="Register")
+            RegisterButton(Modifier, label = "Register", navController = navController)
         }
 
     }
