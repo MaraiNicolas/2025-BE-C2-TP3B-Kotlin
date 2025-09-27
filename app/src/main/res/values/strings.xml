@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="welcome_label_title">Discover Your Dream Job here</string>
+    <string name="welcome_label_subtitle">Explore all the existing job roles based on your interest and study major</string>
+    <string name="welcome_btn_login">Login</string>
+    <string name="welcome_btn_register">Register</string>
+
+    <string name="loginscr_label_title">Login here</string>
+    <string name="loginscr_label_subtitle">Welcome back you've been missed!</string>
+    <string name="scr_input_email_placeholder">Email</string>
+    <string name="scr_input_password_placeholder">Password</string>
+    <string name="scr_input_confirmpassword_placeholder">Confirm Password</string>
+    <string name="loginscr_label_passforgot">Forgot your password?</string>
+    <string name="loginscr_label_newacc">Create new account</string>
+    <string name="loginscr_btn_signin">Sign In</string>
+    <string name="scr_btn_continue">Or continue with</string>
+
+
+    <string name="registerscr_label_title">Create Account</string>
+    <string name="registerscr_label_subtitle">Create an account so you can explore all the existing jobs</string>
+    <string name="registerscr_btn_label">Sign Up</string>
+    <string name="registerscr_already_label">Already have an account</string>
 </resources>

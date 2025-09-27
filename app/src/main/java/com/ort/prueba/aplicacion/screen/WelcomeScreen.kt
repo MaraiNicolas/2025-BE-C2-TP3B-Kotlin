@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -46,14 +47,14 @@ fun WelcomeScreen(modifier : Modifier, navController : NavHostController){
             verticalArrangement = Arrangement.spacedBy(15.dp)
         ){
             AppCampoTextoTitulo(
-                "Discover Your Dream Job here",
+                stringResource(id= R.string.welcome_label_title),
                 fontSize = 35.sp,
                 fontWeight = FontWeight.SemiBold,
                 color = Color(0xFF1059CE),
                 textAlign = TextAlign.Center,
                 lineHeight = 50.sp
             )
-            AppLabelTexto(text="Explore all the existing job roles based on your interest and study major",
+            AppLabelTexto(text=stringResource(id= R.string.welcome_label_subtitle),
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.SemiBold,
@@ -62,9 +63,9 @@ fun WelcomeScreen(modifier : Modifier, navController : NavHostController){
         Row(modifier = Modifier.fillMaxWidth()
             .padding(horizontal = 20.dp, vertical = 60.dp),
             horizontalArrangement = Arrangement.Center){
-            LoginButton(Modifier, label = "Login",navController = navController)
+            LoginButton(Modifier, label = stringResource(id= R.string.welcome_btn_login),navController = navController)
             Spacer(modifier = Modifier.width(10.dp))
-            RegisterButton(Modifier, label = "Register", navController = navController)
+            RegisterButton(Modifier, label = stringResource(id= R.string.welcome_btn_register), navController = navController)
         }
 
     }
